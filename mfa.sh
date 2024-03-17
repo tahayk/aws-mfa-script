@@ -51,6 +51,8 @@ aws --profile $AWS_CLI_PROFILE sts get-session-token --duration 129600 \
   --serial-number $ARN_OF_MFA --token-code $MFA_TOKEN_CODE --output text \
   | awk '{printf("export AWS_ACCESS_KEY_ID=\"%s\"\nexport AWS_SECRET_ACCESS_KEY=\"%s\"\nexport AWS_SESSION_TOKEN=\"%s\"\nexport AWS_SECURITY_TOKEN=\"%s\"\n",$2,$4,$5,$5)}' | tee $HOME/.token_file
 
+sleep 1
+
 AWS_CLI_PROFILE_TMP=$AWS_CLI_PROFILE-tmp
 AWS_CLI_REGION=$(aws configure get region --profile $AWS_CLI_PROFILE)
 echo "Setting up a '$AWS_CLI_PROFILE_TMP' aws profile"
