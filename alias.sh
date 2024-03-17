@@ -7,7 +7,10 @@ else
 fi
 SCRIPT_PATH="$( cd -- "$(dirname -- "${RELEVANT_BASH_SOURCE}")" >/dev/null 2>&1 ; pwd -P  )"
 setToken() {
-    $SCRIPT_PATH/mfa.sh $1 $2
+    $SCRIPT_PATH/mfa.sh $1 $2 && success=true || success=false
+    if [ "$success" = false ] ; then
+        return
+    fi
     source ~/.token_file
     echo "Your creds have been set in your env."
 }
