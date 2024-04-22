@@ -57,11 +57,11 @@ declare $(echo $result | awk '{printf("export AWS_ACCESS_KEY_ID=\"%s\"\nexport A
 AWS_CLI_PROFILE_TMP=$AWS_CLI_PROFILE-tmp
 AWS_CLI_REGION=$(aws configure get region --profile $AWS_CLI_PROFILE)
 echo "Setting up a '$AWS_CLI_PROFILE_TMP' aws profile"
-aws configure --profile $AWS_CLI_PROFILE_TMP set output json &
-aws configure --profile $AWS_CLI_PROFILE_TMP set region $AWS_CLI_REGION &
-aws configure --profile $AWS_CLI_PROFILE_TMP set aws_access_key_id $AWS_ACCESS_KEY_ID &
-aws configure --profile $AWS_CLI_PROFILE_TMP set aws_secret_access_key $AWS_SECRET_ACCESS_KEY &
-aws configure --profile $AWS_CLI_PROFILE_TMP set aws_session_token $AWS_SESSION_TOKEN &
-#aws configure --profile $AWS_CLI_PROFILE_TMP set aws_security_token $AWS_SECURITY_TOKEN &
+aws configure --profile $AWS_CLI_PROFILE_TMP set output json
+aws configure --profile $AWS_CLI_PROFILE_TMP set region $AWS_CLI_REGION
+aws configure --profile $AWS_CLI_PROFILE_TMP set aws_access_key_id $AWS_ACCESS_KEY_ID
+aws configure --profile $AWS_CLI_PROFILE_TMP set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+aws configure --profile $AWS_CLI_PROFILE_TMP set aws_session_token $AWS_SESSION_TOKEN
+#aws configure --profile $AWS_CLI_PROFILE_TMP set aws_security_token $AWS_SECURITY_TOKEN
 wait
 echo "'$AWS_CLI_PROFILE_TMP' aws profile is configured and available for all sessions"
