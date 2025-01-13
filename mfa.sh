@@ -102,5 +102,5 @@ if [ "$DO_POST" = true ]; then
   #   source "$SCRIPT_PATH/post.sh"
   #
   # Typically you might just run it:
-  "$SCRIPT_PATH/post.sh"
+  source "$SCRIPT_PATH/post.sh"
 fi

@@ -17,13 +17,14 @@ The MFA code is the code your MFA device gives you.
  2. Add `source /path/to/alias.sh` to your `~/.bashrc` or `~/.zshrc`
  3. Copy `SAMPLE-mfa.cfg` to `mfa.cfg` in the same directory.
  4. Add a profile name and MFA ARN for each aws cli profile you wish to use. The key should be the profile name and the value should be the ARN of the MFA to use for that profile.
+ 5. Add any extra commands you want to run after mfa to `post.sh`
 
 ## Running the script
 
 At a command prompt run the following command.
 
 ```bash
-mfa <mfacode> <optional-aws-profile>
+mfa <mfacode> <optional-aws-profile> [--post]
 ```
 
 ### Alias Note
